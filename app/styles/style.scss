@@ -1,0 +1,142 @@
+@import "bootstrap-sass/lib/bootstrap";
+@import "bootstrap-sass/lib/responsive";
+@import "fonts.css";
+
+body {
+  background-color: #E74C3C;
+}
+
+header {
+  background-color: #C0392B;
+}
+
+header a, header a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+header nav {
+  float: right;
+  margin: 20px;
+}
+
+.index header nav {
+  display: none;
+}
+
+.blog header {
+  height: 50px;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 70px;
+}
+
+header h2 {
+  line-height: 14px;
+}
+
+.index header h2 {
+  display: none;
+}
+
+
+section h2 {
+  display: inline-block;
+  font-size: 40px;
+}
+
+section div {
+  position: relative;
+  top: -130px;
+  text-align: center;
+}
+
+section a {
+  color: #fff;
+}
+
+section div:hover {
+  cursor: pointer;
+  background-color: #E74C3C;
+}
+
+section a {
+  text-decoration: none !important;
+  color: #fff !important;
+}
+
+h1, h2, h3 {
+  font-family: 'BPReplay','Helvetica Neue',Helvetica,Arial,sans-serif;
+  color: #fff;
+  padding: 20px;
+  font-weight: normal;
+}
+
+article h2 {
+  padding: 20px 0;
+}
+
+article h3 {
+  padding: 0;
+}
+
+article {
+  background-color: rgba(231, 76, 60, 0.5);
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 80%;
+  font-family: 'BPReplay', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #fff;
+}
+
+article p {
+  text-align: justify;
+}
+
+article h2, article h3 {
+  text-align: left;
+}
+
+.postdate {
+  	position: relative;
+  	width: 50px;
+  	height: 50px;
+  	float: left;
+  	margin-right: 10px;
+}
+
+.month, .day, .year {
+	position: absolute;
+  font-size: 20px;
+}
+
+.month {
+  top: -12px;
+  left: 5px;
+  width: 32px;
+  height: 20px;
+}
+
+.day {
+  top: 15px;
+  left: 5px;
+  width: 32px;
+  height: 25px;
+}
+
+.year {
+  bottom: 0;
+  top: 8px;
+  right: -10px;
+  width: 17px;
+  height: 48px;
+	-webkit-transform: rotate(-90deg); 
+	-moz-transform: rotate(-90deg);	
+}
+
+.label {
+  position: relative;
+  top: -15px;
+}

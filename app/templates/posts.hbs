@@ -1,0 +1,60 @@
+<div id="wrapper" class="blog">
+  <header class="navbar-fixed-top">
+    <nav class="hidden-phone">
+      <a href="http://www.facebook.com/chillfactor"><img src="images/facebook.png"></a>
+      <a href="http://www.twitter.com/marcloney"><img src="images/twitter.png"></a>
+      <a href="http://www.github.com/marcloney"><img src="images/github.png"></a>
+    </nav>
+        
+    <h2>{{#linkTo 'index'}}marcloney.com{{/linkTo}}</h2>
+  </header>
+      
+  <article>
+    <h2><div class="postdate hidden-phone"><div class="month">Jun</div><div class="day">17</div><div class="year">2009</div></div>Fundamental Node.js - EventEmitter <span class="label label-info">node.js</span></h2>
+    
+    <p><strong>There are many &#8220;beginners guide to node.js tutorials&#8221; out there. This is the first in a series of article about where to go next exploring the fundamental principles behind node.js.</strong></p>
+    <p>One of the fundamental principles of node.js is the concept of events revolving around the single threaded event loop. Consider it a core abstraction of the Publish/Subscribe pattern. As such, the EventEmitter module becomes a very important tool to control the flow of your application.</p>
+    
+    <h3 id="eventemitter">EventEmitter</h3>
+    
+    <p>EventEmitter allows you to bind callback anonymous functions to events and listen for emitted events. You can bind the callback to only the first event emitted or to all events.</p>
+    <script src="https://gist.github.com/marcloney/5675fdec1d8171643999.js"></script>
+    
+    <pre><code>var EventEmitter = require('events').EventEmitter;
+
+var eventEmitter = new EventEmitter();
+
+eventEmitter.on('testEvent', function (message) {
+  console.log(message);
+});
+
+eventEmitter.emit('testEvent', 'test message');</code></pre>
+    
+    <p>After creating an EventEmitter object, you can listen for an event using the on method and then execute the corresponding callback. AddListener is also an alias of the on method. This function takes as its signature a message that can be emitted with an event.</p>
+    <p>To create an event we use the emit method, which takes the name of an event and its message as arguments.</p>
+    
+    <h3 id="removeeventlisteners">Remove Event Listeners</h3>
+    
+    <p>We can also stop an EventEmitter from listening for an event.</p>
+    <pre><code> var EventEmitter = require('events').EventEmitter;<br/><br/> var eventEmitter = new EventEmitter();<br/><br/> eventEmitter.on('testEvent', function(message) {<br/> console.log(message);<br/><br/> this.removeAllListeners('testEvent');<br/> });<br/><br/> eventEmitter.emit('testEvent', 'test message');<br/> eventEmitter.emit('testEvent', 'test message');<br/></code></pre>
+    <p>This example will run once and then remove all listeners from the EventEmitter. The second emitted event will not trigger the callback function.</p>
+    <p>Rather than removing all listeners attached to the EventEmitter you can also remove individual listeners.</p>
+    <pre><code> eventEmitter.removeListener('testEvent', function(message) {<br/> console.log(message);<br/> });<br/></code></pre>
+    
+    <h3>Run Event Listener Once</h3>
+    
+    <p>There is also a built in method to reduce the above example, by listening for only the first occurance of an event.</p>
+    <pre><code> eventEmitter.once('testEvent', function(message) {<br/> console.log(message);<br/> });<br/></code></pre>
+    
+    <h3>Maximum Listeners</h3>
+    
+    <p>EventEmitter will only listen to a maximum of 10 events by default. This is to prevent potential memory leaks. It is possible to increase this limit.</p>
+    <pre><code> eventEmitter.setMaxListeners(100);</code></pre>
+  </article>
+</div>
+
+<nav class="visible-phone" style="text-align: center;">
+  <a href="http://www.facebook.com/chillfactor"><img src="images/facebook.png"></a>
+  <a href="http://www.twitter.com/marcloney"><img src="images/twitter.png"></a>
+  <a href="http://www.github.com/marcloney"><img src="images/github.png"></a>
+</nav>
