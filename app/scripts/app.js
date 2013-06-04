@@ -20,6 +20,7 @@ App.Router.map(function() {
 App.Store = DS.Store.extend({
   revision: 12,
   adapter: DS.RESTAdapter.extend({
-    url: 'http://localhost:8080/api/1.0'
+    //url: 'http://localhost:8080/api/1.0'
+    url: 'http://www.marcloney.com/api/1.0'
   })
 });
