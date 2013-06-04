@@ -6,8 +6,11 @@ node.js server.
 
 ## Usage
 
-    $ grunt build && cd dist
-    $ node server.js
+    $ grunt build
+    $ node app.js
+
+## TODO
+ - Add semantic URL structure
 
 ## License
 Blog posts are licensed under:

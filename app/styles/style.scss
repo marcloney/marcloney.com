@@ -7,7 +7,15 @@ body {
 }
 
 header {
+  height: 50px;
+}
+
+.index header, .blog header {
   background-color: #C0392B;
+}
+
+.contact header {
+  background-color: #8E44AD;
 }
 
 header a, header a:hover {
@@ -24,9 +32,9 @@ header nav {
   display: none;
 }
 
-.blog header {
+/*.blog header, .contact header {
   height: 50px;
-}
+}*/
 
 header h1 {
   text-align: center;
@@ -41,13 +49,12 @@ header h2 {
   display: none;
 }
 
-
 section h2 {
   display: inline-block;
   font-size: 40px;
 }
 
-section div {
+.index section div {
   position: relative;
   top: -130px;
   text-align: center;
@@ -57,7 +64,7 @@ section a {
   color: #fff;
 }
 
-section div:hover {
+.index section div:hover {
   cursor: pointer;
   background-color: #E74C3C;
 }
@@ -74,21 +81,21 @@ h1, h2, h3 {
   font-weight: normal;
 }
 
-article h2 {
-  padding: 20px 0;
-}
-
-article h3 {
-  padding: 0;
-}
-
-article {
-  background-color: rgba(231, 76, 60, 0.5);
+section#posts {
   margin: 0 auto;
   margin-top: 50px;
   width: 80%;
+  
   font-family: 'BPReplay', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #fff;
+}
+
+section#posts h2 {
+  padding: 20px 0;
+}
+
+section#posts h3 {
+  padding: 0;
 }
 
 article p {
@@ -129,7 +136,7 @@ article h2, article h3 {
 .year {
   bottom: 0;
   top: 8px;
-  right: -10px;
+  right: -12px;
   width: 17px;
   height: 48px;
 	-webkit-transform: rotate(-90deg); 

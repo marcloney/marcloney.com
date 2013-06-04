@@ -1,21 +1,12 @@
 /*global App,Ember*/
 
 App.IndexRoute = Ember.Route.extend({
-  setupController: function() {
-    Ember.run.scheduleOnce('afterRender', this, function() {
-      var height = $(window).height() - 200;
-    
-      $("header").css({
-        "height": height + "px"
-      });
-        
-      $("header h1").css({
-        "line-height": height + "px"
-      });
-    });
-  },
-  
   events: {
+    /**
+     * TODO
+     * Need to incorporate linkBlog/linkContact into a single function (pull transition from data-transition or href).
+     **/
+     
     linkBlog: function() {
       var self = this;
       
@@ -25,11 +16,34 @@ App.IndexRoute = Ember.Route.extend({
         $("section").slideUp();
         $(this).find("h1").remove();
         $(this).find("h2, nav").fadeIn(500, function() {
-          self.transitionTo('posts');
+            /**
+     * TODO
+     * Need to transition to the last post rather than manually specifying.
+     **/
+     
+          self.transitionTo('posts.post', App.Post.find(2));
         });
       });
+    },
+    
+    linkContact: function() {
+      var self = this;
       
-      
+      $("body").animate({
+          "backgroundColor": "#9B59B6"
+        }, 500);
+        
+      $("header").animate({
+        "height": "50px",
+        "backgroundColor": "#8E44AD"
+      }, 500, function() {
+        $("section").slideUp();
+        
+        $(this).find("h1").remove();
+        $(this).find("h2, nav").fadeIn(500, function() {
+          self.transitionTo('contact');
+        });
+      });
     }
   }
 });

@@ -1,0 +1,11 @@
+<h2>Posts</h2>
+{{#each model}}
+  <article>
+    <h3>{{#linkTo posts.post this}}{{title}}{{/linkTo}}</h3>
+    
+    <div class="blurb">
+      {{blurb}}
+    </div>
+    
+  </article>
+{{/each}}
